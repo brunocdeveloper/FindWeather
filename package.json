@@ -21,6 +21,7 @@
     "@types/react": "^18.0.30",
     "@types/react-native": "^0.71.5",
     "@types/react-test-renderer": "^18.0.0",
+    "babel-plugin-module-resolver": "^5.0.0",
     "typescript": "^5.0.2"
   },
   "private": true
