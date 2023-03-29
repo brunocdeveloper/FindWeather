@@ -1,29 +1,37 @@
-import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./src/theme/theme";
+import {
+  useFonts,
+  Overpass_700Bold,
+  Overpass_600SemiBold,
+  Overpass_400Regular,
+  Overpass_300Light,
+} from "@expo-google-fonts/overpass";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    overpass: require("./src/assets/fonts/overpass.ttf"),
+    Overpass_700Bold,
+    Overpass_600SemiBold,
+    Overpass_400Regular,
+    Overpass_300Light,
   });
 
   if (fontsLoaded) {
     return (
-      <View style={styles.container}>
-        <Text style={{ fontFamily: "overpass" }}>
-          Open up App.js to start working on your app!
-        </Text>
-        <StatusBar style="auto" />
-      </View>
+      <ThemeProvider theme={theme}>
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <Text
+            style={{
+              fontFamily: theme.fontFamily.bold,
+            }}
+          >
+            Open up App.js to start working on your app!
+          </Text>
+          <StatusBar style="auto" />
+        </View>
+      </ThemeProvider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
